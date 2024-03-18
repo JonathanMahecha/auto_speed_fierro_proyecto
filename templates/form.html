@@ -1,0 +1,177 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TODO: proporciona un título</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .card-header {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body onload="generateUniqueCode()">
+    <div class="sidebar close">
+        <div class="logo-details">
+            <img src="{% static 'img/iconodon.png' %}" alt="iconodon.png">
+            <span class="logo_name">Don-Speed's-Fierro</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'admin_menu' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="{% url 'ver_agenda' %}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Ver agenda</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'users' %}">
+                    <i class='bx bx-history'></i>
+                    <span class="link_name">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="{% url 'listar' %}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Garantias</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name">Don Speeds Fierro</div>
+                        <div class="job">Admin</div>
+                    </div>
+                    <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                    </form>
+                    <div class="bx bx-log-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu bx-menu-alt-right'></i>
+            <span class="text">Menu</span>
+        </div>
+        <div class="container my-4" style="margin-left: 100;">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4" style="background-color: white; color: rgb(0, 81, 255);">
+                    <h2>ADMINISTRADOR</h2>
+                    <img src="{% static 'img/administrador.png' %}" alt="administrador.png" style="width: 150px;">
+                    <br>
+                    <br>
+                    <h4>¡PARA GESTIONAR LAS GARANTIAS DALE CLICk A LOS BOTONES INDICANDO LA ACCION QUE DESEAS REALIZAR!</h4>
+                    <br>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 py-4 " style="background: rgb(228, 228, 228); color: rgb(0, 81, 255);">
+                    <h2 style="text-align: center;">SECCION GARANTIAS</h2>
+                    <h4 style="text-align: center;">todas las garantias</h4>
+                    <div class="container mt-4">
+                        <div class="col-sm-12 col-md-14 py-5" style="background: #C9C7C0; color: rgb(0, 81, 255)">
+                            <form action="{% url 'save' %}" method="post">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Módulo Garantía</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <br>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="categoria">Categoria</label>
+                                            <select name="categoria" id="categoria" class="form-control" style="color: blue;">
+                                                <option value="Servicio">Servicio</option>
+                                                <option value="Producto">Producto</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ventae">Venta</label>
+                                            <select name="ventae" id="ventae" class="form-control" style="color: blue;">
+                                                <option value="aceite">Aceite</option>
+                                                <option value="cambio_llantas">Cambio de Llantas</option>
+                                                <option value="alineacion">Alineación</option>
+                                                <option value="rectificacion">Rectificación</option>
+                                                <option value="freno">Freno</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Código <br> Garantía</label>
+                                            <input style="display: inline-block; width: 150px;" name="CodigoGarantia" type="number" class="form-control" />
+                                        </div>
+                                        <br><br>
+                                        <div class="form-group">
+                                            <label>Detalles Garantía</label>
+                                            <textarea name="DetallesGarantia" class="form-control" style="overflow-y: auto"></textarea>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="fechaVencimiento">Fecha de Vencimiento</label>
+                                            <input name="FechaVencimiento" type="date" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="card-footer"></div>
+                                    <input type="submit" value="Guardar" class="btn btn-success">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var fechaVencimientoInput = document.getElementById("fechaVencimiento");
+    
+            fechaVencimientoInput.addEventListener("change", function () {
+                var fechaVencimiento = new Date(fechaVencimientoInput.value);
+                var fechaActual = new Date();
+    
+                var fechaMaxima = new Date();
+                fechaMaxima.setMonth(fechaMaxima.getMonth() + 6);
+    
+                if (fechaVencimiento < fechaActual) {
+                    alert("La fecha de vencimiento no puede ser anterior a la fecha actual.");
+                    fechaVencimientoInput.value = "";
+                } else if (fechaVencimiento > fechaMaxima) {
+                    alert("La fecha de vencimiento no puede ser más de 6 meses en el futuro.");
+                    fechaVencimientoInput.value = "";
+                }
+            });
+        });    </script>
+</body>
+</html>

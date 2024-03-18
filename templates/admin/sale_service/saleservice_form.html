@@ -1,0 +1,29 @@
+<!-- admin/sale_service/saleservice_form.html
+{% extends 'admin/change_form.html' %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    .field-garantia {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script>
+    window.onload = function() {
+        var stateField = document.getElementById("id_state");
+        var garantiaField = document.getElementById("id_garantia");
+
+        stateField.addEventListener("change", function() {
+            if (stateField.value === "Finalizado") {
+                garantiaField.parentNode.parentNode.style.display = "table-row";
+            } else {
+                garantiaField.parentNode.parentNode.style.display = "none";
+            }
+        });
+    }
+</script>
+{% endblock %} -->

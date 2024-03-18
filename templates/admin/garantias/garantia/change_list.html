@@ -1,0 +1,74 @@
+{% extends "admin/change_list.html" %}
+
+{% block result_list %}
+  <ul>
+    <li>
+      <a href="{% url 'reporte_garantia_pdf' %}" class="button" target="_blank">Generar Informe PDF</a>
+    </li>
+  </ul>
+  {{ block.super }}
+{% endblock %}
+
+<!-- {% extends "admin/change_list.html" %}
+
+{% if mostrar_boton_pdf %}
+  <ul>
+    <li>
+      <a href="{% url 'reporte_garantia_pdf' %}" class="button" target="_blank">Generar Informe PDF</a>
+    </li>
+  </ul>
+{% endif %} -->
+
+
+<!-- 
+{% comment %} {% extends "admin/change_list.html" %}
+
+{% block result_list %}
+  {{ block.super }}
+  {% if mostrar_boton_pdf %}
+    <div style="margin-top: 10px;">
+      <a href="{% url 'reporte_garantia_pdf' %}" class="button" target="_blank">Generar Informe PDF</a>
+    </div>
+  {% endif %}
+{% endblock %} {% endcomment %}
+
+
+{% comment %} {% extends "admin/change_list.html" %}
+
+{% block result_list %}
+  {% if cl.opts.model_name == 'garantia' %}
+    <ul>
+      <li>
+        <a href="{% url 'reporte_garantia_pdf' %}" class="button" target="_blank">Generar Informe PDF</a>
+      </li>
+    </ul>
+  {% endif %}
+  {{ block.super }}
+{% endblock %}
+ {% endcomment %}
+
+
+{% comment %} {% extends "admin/base.html" %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        /* Aquí puedes agregar estilos personalizados si los necesitas */
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% if title == 'Change' %}
+        {% if original.opts.model_name == 'TuModelo' %}
+            <div style="margin-bottom: 20px;">
+                <a href="{% url 'ruta_para_generar_pdf' original.pk %}" class="button">Generar PDF</a>
+            </div>
+        {% endif %}
+    {% endif %}
+    <div id="content-main">
+        {% block main %}
+            {{ block.super }}
+        {% endblock %}
+    </div>
+{% endblock %} {% endcomment %} -->
+

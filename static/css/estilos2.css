@@ -1,0 +1,94 @@
+/* Estilos para la página de error 500 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #ffde59;
+    color: #004aad;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.izquierda, .derecha {
+    width: 100px;
+}
+
+.izquierda img{
+    width: 10rem;
+    height: 10rem;
+}
+
+.derecha img{
+    width: 10rem;
+    height: 10rem;
+}
+
+.error-container {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carita {
+    font-size: 8rem;
+    margin-bottom: 20px;
+}
+
+.carita img{
+   width: 12rem;
+}
+
+.tuercas {
+    font-size: 8rem;
+    margin-bottom: 20px;
+}
+
+.tuercas img{
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 20px;
+}
+
+.arms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arm, .right-arm {
+    font-size: 3rem;
+    margin: 20px;
+    animation: rotate 1s ease-in-out infinite alternate;
+}
+
+p {
+    font-size: 4rem;
+}
+
+.texto {
+    align-items: center;
+    display: flex;
+}
+
+.texto img{
+    align-items: center;
+    width: 7rem;
+    height: 7rem;
+}

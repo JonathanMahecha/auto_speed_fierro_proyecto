@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu factura de venta de producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .details table th,
+        .details table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .details table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .details table td {
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .notes {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Factura de Venta de Producto</h1>
+            <p>Número de Factura: {{ id }}</p>
+        </div>
+        <div class="company-info">
+            <p>Don Speeds' Fierro</p>
+            <p>Cra. 62 #165a - 60</p>
+            <p>3134212406</p>
+            <p>proyectogaes3@gmail.com</p>
+            <!-- Agregar el logo de la empresa aquí si es necesario -->
+        </div>
+        <div class="details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ product }}</td>
+                        <td>{{ quantity_sold }}</td>
+                        <td>${{ unit_price }}</td>
+                        <td>${{ total_price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <p>Total: ${{ total_price }}</p>
+            <p>Fecha de Emisión: {{ sale_date }}</p>
+        </div>
+        <div class="notes">
+            <h3>Notas Adicionales</h3>
+            <p>Recuerda revisar tu garantía para pedir un cambio en el producto.</p>
+            <!-- Agregar otras notas relevantes aquí -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu venta de producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #007bff;
+        }
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .details table th,
+        .details table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .details table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .details table td {
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tu factura de venta de producto</h1>
+        </div>
+        <div class="details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Número de factura</td>
+                        <td>{{ id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Producto</td>
+                        <td>{{ product }}</td>
+                    </tr>
+                    <tr>
+                        <td>Cantidad vendida</td>
+                        <td>{{ quantity_sold }}</td>
+                    </tr>
+                    <tr>
+                        <td>precio unitario</td>
+                        <td>${{ unit_price }}</td>
+                    </tr>
+                    <tr>
+                        <td>Precio total</td>
+                        <td>${{ total_price }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de venta</td>
+                        <td>{{ sale_date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3> Reucerda revisar tu garantía para pedir un cambio en el producto<h3>
+        </div>
+        <div class="footer">
+            <p>¡Gracias por elegir nuestros servicios!</p>
+        </div>
+    </div>
+</body>
+</html>
+ -->

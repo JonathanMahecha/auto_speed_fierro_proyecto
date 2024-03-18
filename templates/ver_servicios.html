@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu desplegable</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/Styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+            <img src="{% static 'img/Carro.jpg' %}" alt="">
+            <span class="logo_name">Auto Speed's-Fierro</span>
+        </div>
+        <ul class="nav-links">
+            <li> 
+                <div class="iocn-link">
+                    <a href="{% url 'agendar' %}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Agendar</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'contactos' %}">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="link_name">Contactos</span>
+                </a>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="{% url 'ver_inventario' %}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Productos</span>
+                    </a>
+                </div> 
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="{% url 'ver_servicios' %}">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Servicios</span>
+                    </a>
+                </div> 
+            </li>
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                    </div>
+                    <div class="name-job">
+                        <div class="job">Don Speeds Fierro</div>
+                        <div class="profile_name">{{ user.username }}</div> <!-- Aquí se mostrará el nombre de usuario -->
+                    </div>
+                    <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none">
+                        {% csrf_token %}
+                    </form> 
+                    <button class="btn btn-sm btn-outline-light" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class='bx bx-log-out'></i> Logout
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div> 
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Menu</span>
+        </div>
+        <h1>Servicios</h1>
+        <section>
+            <div class="row row-cols-1 row-cols-md-3">
+                {% for servicio in servicios %}
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <!-- <img src="{{ media.producto.image }}" class="card-img-top" alt="..."> -->
+                    <img src="{{ servicio.imagen.url }}" class="card-img-top" alt="...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ servicio.nombre }}</h5>
+                        <p class="card-text">{{ servicio.descripcion }}</p>
+                        {% comment %} <p class="card-text">Precio: {{ servicio.price }}</p> {% endcomment %}
+                        <a href="{% url 'agendar' %}" class="btn btn-primary crear-button">Adquirir servicio</a>                  
+                      </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </section>
+    </section>
+    
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+</body>
+</html>

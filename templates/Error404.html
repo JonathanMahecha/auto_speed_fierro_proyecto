@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error 404</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="izquierda">
+                <img src="{% static 'img/llave.png' %}" alt="llave izquierda">
+            </div>
+            <div class="derecha">
+                <img src="{% static 'img/llave2.png' %}" alt="llave derecha">
+            </div>
+        </header>
+        <div class="error-container">
+            <div class="carita">
+                <h1>Err<img src="{% static 'img/carita triste.png' %}" alt="Letra E">r</h1>
+            </div>
+            <div class="tuercas">
+                <h1>4<img src="{% static 'img/tuerca.png' %}" alt="Número 5">4</h1>
+            </div>
+            <div class="texto">
+                <img src="{% static 'img/tl.png' %}" alt=""><p>Internal Server<br>Error</p><img
+                    src="{% static 'img/tl2.png' %}" alt="">
+            </div>
+            <div class="arms">
+                <div class="left-arm"><i class="fas fa-wrench"></i></div>
+                <div class="right-arm"><i class="fas fa-wrench"></i></div>
+            </div>
+        </div>
+    </body>
+</html>
