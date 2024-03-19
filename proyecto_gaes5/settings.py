@@ -89,7 +89,11 @@ WSGI_APPLICATION = 'proyecto_gaes5.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://autospeedfierropg_9jnn_user:k4OOl6OW5DQplwnsUs51YKr3XPSzg6MG@dpg-cnshn9mn7f5s73db6oug-a/autospeedfierropg_9jnn")
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
 
 AUTH_USER_MODEL = 'sesiones.CustomUser'
