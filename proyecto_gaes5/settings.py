@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-k3&(o^9@t7%j51tfbx*nr+3-k%1d!g@-f&qn$4q0zxr%_=pfk8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['auto-speed-fierro-proyecto.onrender.com']
 
 
 # Application definition
