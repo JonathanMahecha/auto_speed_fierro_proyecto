@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'proyecto_gaes5.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://autospeedfierropg_user:hE7Iby5QSdNNtkmmByjdal2aC1ogz4mH@dpg-cnsd8vta73kc73b4e64g-a/autospeedfierropg")
+    'default': dj_database_url.parse("postgres://autospeedfierropg_9jnn_user:k4OOl6OW5DQplwnsUs51YKr3XPSzg6MG@dpg-cnshn9mn7f5s73db6oug-a/autospeedfierropg_9jnn")
 }
 
 AUTH_USER_MODEL = 'sesiones.CustomUser'
