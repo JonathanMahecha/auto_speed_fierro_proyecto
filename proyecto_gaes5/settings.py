@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-k3&(o^9@t7%j51tfbx*nr+3-k%1d!g@-f&qn$4q0zxr%_=pfk8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [https://auto-speed-fierro-proyecto.onrender.com]
+ALLOWED_HOSTS = ['auto-speed-fierro-proyecto.onrender.com']
 
 
 # Application definition
@@ -89,11 +89,7 @@ WSGI_APPLICATION = 'proyecto_gaes5.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
+    'default': dj_database_url.parse("postgres://autospeedfierropg_user:hE7Iby5QSdNNtkmmByjdal2aC1ogz4mH@dpg-cnsd8vta73kc73b4e64g-a/autospeedfierropg")
 }
 
 AUTH_USER_MODEL = 'sesiones.CustomUser'
